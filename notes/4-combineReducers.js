@@ -1,5 +1,8 @@
 import { combineReducers, createStore } from "redux";
 // import { store } from "./bindActionCreators.js";
+/**
+ * combineReducers( takes an Object where the keys are namespaces of splices of my reducer store)
+ */
 console.log("\u001b[1;45m");
 
 const initialState = {
@@ -31,8 +34,8 @@ const addUserActionCreator = (name, id) => ({
 });
 /**
  * instead of writing a gigantic reducer that handles all the logic, which is verry bad for scalability ( ofc if we are talking about  Huge applications)
- * engineers found a good solution that makes our life easier, which boils down to make reducers that handle the state of each section of our payload
- * look example bellow
+ * engineers found a good solution that makes our life easier, which boils down to make reducers that handle independent parts of the state
+ * look example bellow : cool ! pas comme j'ai l'habitude de faire (https://codepen.io/tarik-gadoumi/pen/mdLqWNW?editors=0010)
  */
 const userReducer = (users = initialState.users, action) => {
   if (action.type === "ADD_USER") {
@@ -46,7 +49,9 @@ const rôleReducer = (rôle = initialState.Rôle, action) => {
   }
   return rôle;
 };
+// keys are namespaces of slices of my reducer store
 const reducer = combineReducers({ users: userReducer, Rôle: rôleReducer });
+
 const store = createStore(reducer, initialState);
 console.log(store.dispatch(addUserActionCreator("cristiano ronaldo", 10)));
 console.log(store.getState());
