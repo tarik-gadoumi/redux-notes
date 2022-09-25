@@ -27,4 +27,5 @@ console.log("expected 10004", store.getState());
 
 /**
  * * what if we had multiple action creators ?
+ * *
  */
