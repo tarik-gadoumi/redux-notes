@@ -1,0 +1,23 @@
+{
+  "name": "redux-notes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarik-gadoumi/redux-notes.git"
+  },
+  "author": "tarik gadoumi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tarik-gadoumi/redux-notes/issues"
+  },
+  "homepage": "https://github.com/tarik-gadoumi/redux-notes#readme",
+  "dependencies": {
+    "redux": "^4.2.0"
+  }
+}
