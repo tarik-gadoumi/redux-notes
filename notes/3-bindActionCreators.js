@@ -63,3 +63,4 @@ actions.incrementActionCreator();
 console.log("expected output 30006", store.getState());
 actions.addActionCreator(10000);
 console.log("expected output 40006", store.getState());
+export { store };
