@@ -1,4 +1,4 @@
-import { combineReducers } from "redux";
+import { combineReducers, createStore } from "redux";
 // import { store } from "./bindActionCreators.js";
 console.log("\u001b[1;45m");
 
@@ -30,8 +30,23 @@ const addUserActionCreator = (name, id) => ({
   payload: { name: name, id: id },
 });
 /**
- * instead of writing a gigant reducer that handles all the logic, which is verry bad for scalability ( ofc if we are talking about  Huge applications)
- * engineers found a good solution that makes our life easier, and it's make reducers that handle the state of each section of our payload
+ * instead of writing a gigantic reducer that handles all the logic, which is verry bad for scalability ( ofc if we are talking about  Huge applications)
+ * engineers found a good solution that makes our life easier, which boils down to make reducers that handle the state of each section of our payload
  * look example bellow
  */
+const userReducer = (users = initialState.users, action) => {
+  if (action.type === "ADD_USER") {
+    return [...users, action.payload];
+  }
+  return users;
+};
+const rôleReducer = (rôle = initialState.Rôle, action) => {
+  if (action.type === "ADD_STATUS") {
+    return [...rôle, action.payload];
+  }
+  return rôle;
+};
+const reducer = combineReducers({ users: userReducer, Rôle: rôleReducer });
 const store = createStore(reducer, initialState);
+console.log(store.dispatch(addUserActionCreator("cristiano ronaldo", 10)));
+console.log(store.getState());
