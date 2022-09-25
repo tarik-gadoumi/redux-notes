@@ -79,7 +79,7 @@ console.log(store.getState());
  */
 const subscriber = () => console.log("SUBSCRIBER", store.getState());
 /**
- * what it does is calling a function  every time the state changes
+ * what it does is calling a function every time the state changes
  * useful for event listener (DOM) or event Emitter (Nodejs)
  * Why this is usefull ?
  * imagine we wan"t to pass a new props every time our  react app changes

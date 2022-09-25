@@ -1,3 +1,4 @@
+//! WHEN node notes/bindActinCreators.js FOCUS ON ORANGE COLOR
 import { bindActionCreators, compose } from "redux";
 import {
   store,
@@ -12,7 +13,9 @@ const actions = bindActionCreators(
   { incrementActionCreator, addActionCreator },
   store.dispatch
 );
+
 console.log("\u001b[1;43m Section C");
+
 /**
  * * binActionCreators :
  * * this method allow use to fire dispatches from calling
@@ -52,3 +55,11 @@ dispatchInrement();
 console.log("expected output 20005", store.getState());
 dispatchAdd(10000);
 console.log("expected outpur 30005 ", store.getState());
+
+/**
+ * now let's use our returned object from bindActionCreators
+ */
+actions.incrementActionCreator();
+console.log("expected output 30006", store.getState());
+actions.addActionCreator(10000);
+console.log("expected output 40006", store.getState());
