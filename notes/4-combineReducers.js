@@ -66,7 +66,7 @@ const RewriteCombineReducers = (reducers) => {
        * & pass it to each part of the reducer function
        * (another explanation : we are only updating the state according to the given key in the combineReducers Object attribute)
        * ! très important à savoir :
-       * ! when store.dispatch({type :"someTypeThatExistsInMultipleReducersFormedByTheCombineReducerTree"})
+       * ! when store.dispatch({type :"someTypeThatExistsInMultipleReducersCombinedByTheCombineReducerTree"})
        * ! note that it's gonna trigger the case 'blabla' : in all the reducers tree
        * */
       const reducerFunction = reducers[reducerKey];
