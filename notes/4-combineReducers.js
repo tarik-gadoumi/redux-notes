@@ -51,7 +51,28 @@ const rôleReducer = (rôle = initialState.Rôle, action) => {
 };
 // keys are namespaces of slices of my reducer store
 const reducer = combineReducers({ users: userReducer, Rôle: rôleReducer });
-
 const store = createStore(reducer, initialState);
 console.log(store.dispatch(addUserActionCreator("cristiano ronaldo", 10)));
 console.log(store.getState());
+/**
+ * todo : if i wan t to implement combineReducers how would i proceed ?
+ * * i'm using the same implementation on this video : https://www.youtube.com/watch?v=7q60_OwFY64
+ */
+const RewriteCombineReducers = (reducers) => {
+  return (state = {}, action) => {
+    Object.keys(reducers).forEach((reducerKey) => {
+      /**
+       * waw here we are taking slices of the global state Object
+       * & pass it to each part of the reducer function
+       * (another explanation : we are only updating the state according to the given key in the combineReducers Object attribute)
+       * ! très important à savoir :
+       * ! when store.dispatch({type :"someTypeThatExistsInMultipleReducersFormedByTheCombineReducerTree"})
+       * ! note that it's gonna trigger the case 'blabla' : in all the reducers tree
+       * */
+      const reducerFunction = reducers[reducerKey];
+      const sliceState = state[reducerKey];
+      state[reducerKey] = reducerFunction(sliceState, action);
+      return state;
+    });
+  };
+};
