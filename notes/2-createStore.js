@@ -75,7 +75,7 @@ console.log(store.getState());
  * ! replaceReducer : https://redux.js.org/usage/code-splitting#using-replacereducer
  */
 /**
- * let's play with the subscribe method
+ * let's play with the subscribe method (to subscribe = to notify when state changes)
  */
 const subscriber = () => console.log("SUBSCRIBER", store.getState());
 /**
